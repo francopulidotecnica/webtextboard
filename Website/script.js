@@ -2,13 +2,16 @@ let postCount = 0; // To keep track of the number of posts
 
 function addPost() {
     // Get input values
-    const username = document.getElementById("username").value.trim();
+    let username = document.getElementById("username").value.trim();
     const postContent = document.getElementById("postContent").value.trim();
 
     // Check if inputs are empty
-    if (username === "" || postContent === "") {
-        alert("Please enter both your name and a post.");
+    if (postContent === "") {
+        alert("ingrese texto");
         return;
+    }
+    if (username === ""){
+     username="anon";
     }
 
     // Increment post count for the unique post number
@@ -20,9 +23,12 @@ function addPost() {
 
     // Set the inner HTML of the post with name, post number, and content
     postDiv.innerHTML = `
-        <div class="post-number">Post #${postCount}</div>
-        <div class="post-author">Posted by: ${username}</div>
+    
+        <span class="post-number">id #${postCount}</span>
+        <span class="post-author">nombre #${username}</span>
+        <hr>
         <div class="post-content">${postContent}</div>
+    
     `;
 
     // Append the new post to the post list
