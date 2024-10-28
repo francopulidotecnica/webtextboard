@@ -1,0 +1,41 @@
+ .boxA {
+    display: none; /* Hidden by default */
+    border: 1px solid #72b187;    /* Border color and thickness */
+    border-top: 4px solid #3d6e5a;
+    padding: 10px;             /* Space inside the box */
+    margin-left: 75%;
+    margin-right: 5px;
+    
+    background-color: #dbd8d862; /* Background color */
+    width: 275px;
+    height: 220px;
+    position: absolute;
+}
+ .box {
+    border: 1px solid #72b187;
+    border-top: 4px solid #3d5e4a;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 1%;
+ }
+ .highlight-text {
+    color: black;              /* Initial text color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+
+ .highlight-text:hover {
+    color: white;               /* Change text color on hover */
+    color: blue;     /* Change background color on hover */
+    text-decoration: underline;
+}
+
+html{
+    font-family: Courier New, monospace;
+    background-color: #999c9e46;
+    
+}
+
+h1{
+    font-family: Courier New, monospace;
+    color: #3d5e4a;
+}

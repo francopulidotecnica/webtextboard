@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial scale=1">
+  <title>Textboard</title>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="C:\Users\Usuario\Desktop\Website\webtextboard\Website\icono.png">
+
+  
+</head>
+<body>
+  <h1 style="text-align: center;margin-top: 0px;">Textboard Argentina</h1> 
+  <hr>
+   <h2 style="text-align: center;">[<a class="highlight-text" onclick="showPopup()">Hace un post</a>]</h2>
+  <hr>
+  <h5>Boards:</h3>
+  <div><div id="postList"> <hr></div> <!-- Posts will appear here --></div>
+  <div class="boxA">
+    <div class="container">
+      <div style="text-align: right;"><a style="color: red;" onclick="hidePopup()">X</a></div> 
+    <h2 style="text-align: left;margin-bottom: 10px;">Crea un Post:</h2>
+    <input type="text" id="username" placeholder="-Anonimo-" required><br>
+    <textarea id="postContent" placeholder="Write your post here..." style="width: 275px;
+    height: 90px;" required></textarea>
+    <button onclick="addPost()">Submit Post</button>
+    </div>
+  </div>
+
+  <footer style="position: fixed;bottom: 0;left: 0;width: 100%;text-align: center;background-color: #f0f0f0;padding: 0px;">Deja sujerencias para la pag <a href="francopulidotecnica@gmail.com">acá</a></footer>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="style.css">
+</body>
+</html>

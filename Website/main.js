@@ -11,7 +11,7 @@ function addPost() {
         return;
     }
     if (username === ""){
-     username="anon";
+     username="anonimo";
     }
 
     // Increment post count for the unique post number
@@ -23,11 +23,12 @@ function addPost() {
 
     // Set the inner HTML of the post with name, post number, and content
     postDiv.innerHTML = `
-    
+     <div class="box">
         <span class="post-number">id #${postCount}</span>
-        <span class="post-author">nombre #${username}</span>
+        <span class="post-author">| nombre: ${username}</span>
         <hr>
         <div class="post-content">${postContent}</div>
+    </div>
     
     `;
 
@@ -38,4 +39,20 @@ function addPost() {
     document.getElementById("username").value = "";
     document.getElementById("postContent").value = "";
 }
+function scrollToBottom() {
+    // Scrolls to the bottom of the page smoothly
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
+}
 
+function showPopup() {
+    document.querySelector(".boxA").style.display = "block";
+}
+
+// Function to hide the popup
+function hidePopup() {
+    document.querySelector(".boxA").style.display = "none";
+    
+}
