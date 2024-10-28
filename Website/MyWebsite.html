@@ -4,31 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial scale=1">
   <title>Textboard</title>
+  <script src="script.js"></script>
+  <style>
+    .box {
+        border: 1px solid #333;    /* Border color and thickness */
+        padding: 15px;             /* Space inside the box */
+        margin: 0px 0;            /* Space outside the box */
+             /* Fixes the box to the viewport */
+        bottom: 50px;
+        background-color: #f9f9f9; /* Background color */
+        /*max-width: 400px;          /* Optional max width */
+    }
+</style>
 </head>
 <body style="font-family: Courier New, monospace;">
-  <h1 style="text-align: center;margin-top: 0px;">Textboard Argentina</h1>
+  <h1 style="text-align: center;margin-top: 0px;">Textboard Argentina</h1> 
   <hr>
-  <textarea id="messageInput" rows="2" cols="50" ></textarea>
-  <button style="padding-top: 23px;padding-right: -50px;" onclick="sendMessage()">Send</button>
-  <div id="messages" ></div>
-  <footer style="position: fixed;bottom: 0;left: 0;width: 100%;text-align: center;background-color: #f0f0f0;padding: 10px;">Deja sujerencias para la pag <a href="https://www.example.com">acá</a></footer>
-  
- 
+   <h2 style="text-align: center;">[<span class="highlight" onclick="scrollToBottom()" style="color: #291db1;">Hace un post</span>]</h2>
+  <hr>
+  <div style="height: 800px;"><div id="postList"></div> <!-- Posts will appear here --></div>
+  <div class="box" style="align-self:bottom">
+    <div class="container">
+    <h2 style="text-align: left;margin-left: 50px;">Crea un Post</h2>
+    <input type="text" id="username" placeholder="-Anon-" required><br>
+    <textarea id="postContent" placeholder="Write your post here..." required></textarea>
+    <button onclick="addPost()">Submit Post</button>
+    
+    <h4>Posts:</h4>
+    
+    </div>
+  </div>
+<script>
+   function scrollToBottom() {
+            // Smoothly scrolls to the bottom of the page
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+  let postCount = 0; // To keep track of the number of posts
 
-  <script>
-    function sendMessage() {
-      const messageInput = document.getElementById("messageInput");
-      const messagesDiv = document.getElementById("messages");
+  function addPost() {
+      // Get input values
+      const username = document.getElementById("username").value.trim();
+      const postContent = document.getElementById("postContent").value.trim();
 
-      const message = messageInput.value;
-      if (message.trim() !== "") {
-        const newMessage = document.createElement("p");
-        newMessage.textContent = message;
-        messagesDiv.appendChild(newMessage);
-        messageInput.value = "";
+      // Check if inputs are empty
+      if (username === "" || postContent === "") {
+          alert("Please enter both your name and a post.");
+          return;
       }
-    }
 
-  </script>
+      // Increment post count for the unique post number
+      postCount++;
+
+      // Create a new post element
+      const postDiv = document.createElement("div");
+      postDiv.classList.add("post");
+
+      // Set the inner HTML of the post with name, post number, and content
+      postDiv.innerHTML = `
+          <div class="post-number">#<b>${postCount}</b></div>
+          <div class="post-author"> >>id:${username}</div>
+          <div class="post-content">${postContent}</div>
+      `;
+
+      // Append the new post to the post list
+      document.getElementById("postList").appendChild(postDiv);
+
+      // Clear the input fields
+      document.getElementById("username").value = "";
+      document.getElementById("postContent").value = "";
+  }
+</script>
+  <footer style="position: fixed;bottom: 0;left: 0;width: 100%;text-align: center;background-color: #f0f0f0;padding: 0px;">Deja sujerencias para la pag <a href="francopulidotecnica@gmail.com">acá</a></footer>
 </body>
 </html>
